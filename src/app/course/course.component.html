@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <p>Create New Course</p>
+    </div>
+    <div class="panel-body">
+      <form  #courseForm="ngForm"  (ngSubmit)="saveCourse(courseForm.value)" name="newCourseForm">
+        <div class="form-group col-md-12  col-xs-12">
+          <label for="courseTitle" class="col-md-2  col-xs-12">Course Title: </label>
+          <input id="courseTitle" class="col-md-10  col-xs-12" type="text" name="courseTitle" (ngModel)="courseTitle" required placeholder="Course Title" class="form-control">
+        </div>
+        <div class="form-group col-md-12 col-xs-12">
+                <label for="courseDesc" class="col-md-2  col-xs-12">Course Description: </label>
+                <textarea id="courseDesc" class="col-md-10  col-xs-12" cols="50" rows="5" name="courseDesc" (ngModel)="courseDesc"  required placeholder="Course Description" class="form-control"></textarea>
+        </div>
+        <div class="form-group col-md-12 col-xs-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <a type="button" routerLink='/courses' class="btn btn-default">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{ event | json }}
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <p>Create New student</p>
+    </div>
+    <div class="panel-body">
+      <form  #studentForm="ngForm"  (ngSubmit)="saveStudent(studentForm.value)" name="newstudentForm">
+        <div class="form-group col-md-12  col-xs-12">
+          <label for="studentName" class="col-md-2  col-xs-12">Student Name: </label>
+          <input type="hidden" name="studentId" [(ngModel)]="studentId" >
+          <input id="studentName" class="col-md-10  col-xs-12 form-control" type="text" name="studentName" [(ngModel)]="studentName" required placeholder="Student Name">
+        </div>
+        <div class="form-group col-md-12 col-xs-12">
+                <label for="studentCourse" class="col-md-2  col-xs-12">Course: </label>
+                <select id="studentCourse" class="col-md-10  col-xs-12 form-control" name="studentCourse" [(ngModel)]="studentCourse"  required>
+                  <option selected="selected" value="">
+                    Choose Course
+                  </option>
+                  <option *ngFor="let course of courses;" [value]="course.courseId">
+                    {{course.courseTitle}}
+                  </option>
+                </select>
+        </div>
+        <div class="form-group col-md-12 col-xs-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" ng-click="cancelEdit()" class="btn btn-default">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  {{ event | json }}
+</div>
